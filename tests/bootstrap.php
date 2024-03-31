@@ -4,7 +4,10 @@ use Illuminate\Support\Collection;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
-$tests_dir = env('WP_TESTS_DIR', '/tmp/wordpress-tests-lib');
+$_tests_dir = getenv( 'WP_TESTS_DIR' );
+if ( ! $_tests_dir ) {
+	$_tests_dir = '/tmp/wordpress-tests-lib';
+}
 
 require_once "{$tests_dir}/includes/functions.php";
 
